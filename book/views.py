@@ -22,3 +22,11 @@ def create_book(request):
     else:
         form=BookForm()
     return render(request,"book/create.html",{'form':form})
+
+
+def detail_book(request,pk):
+    book=Book.objects.filter(pk=pk).first()
+    # context={
+    #     'book':book
+    # }
+    return render(request,"book/detail.html",{'book':book})

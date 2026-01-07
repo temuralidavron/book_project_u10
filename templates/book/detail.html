@@ -4,7 +4,7 @@
 <h2 class="mb-4 fw-bold">📚 Books List</h2>
 
 <div class="row g-4">
-    {% for book in books %}
+
     <div class="col-md-4">
         <div class="card h-100 p-3"
              style="background: linear-gradient(135deg, #eef2ff, #fdf2f8);">
@@ -26,7 +26,7 @@
             </p>
 
             <p class="small text-dark">
-                {{ book.description|truncatechars:4 }}  <a href="{% url 'book-detail' book.pk %}">Batafsil....</a>
+                {{ book.description }}
             </p>
 
             <div class="d-flex justify-content-between align-items-center mt-auto">
@@ -46,6 +46,5 @@
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
