@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Login user</h3>
+<form method="post">
+  {{ norm.as_p }}
+  {% csrf_token %}
+<button type="submit">send</button>
+</form>
+<a href="{% url 'register' %}">Register </a>
+{% endblock %}

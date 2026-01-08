@@ -10,6 +10,6 @@ class CustomUser(AbstractUser):
         ('reader', 'Reader'),
         ('moderator', 'Moderator')
     )
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES,default='moderator')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES,default='reader')
     phone=models.CharField(max_length=15)
 

@@ -72,7 +72,14 @@
                 <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'book-create' %}">Book create</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Authors</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                {% if request.user.is_authenticated %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+                                <p>Welcome, {{ user.username }} role {{ user.role }}</p>
+
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+
+                {% endif %}
             </ul>
         </div>
     </div>

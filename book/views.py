@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+from account.permission import required_user, admin_required
 from book.forms import BookForm
 from book.models import Book
 
@@ -12,7 +13,7 @@ def get_book(request):
     }
     return render(request,"book/list.html",context)
 
-
+@admin_required
 def create_book(request):
     if request.method=='POST':
         form=BookForm(request.POST,request.FILES)
@@ -23,7 +24,7 @@ def create_book(request):
         form=BookForm()
     return render(request,"book/create.html",{'form':form})
 
-
+@required_user
 def detail_book(request,pk):
     book=Book.objects.filter(pk=pk).first()
     # context={
